@@ -7,13 +7,16 @@ select * from department;
 create table employee(empid int primary key,emp_name  varchar(30),salary bigint,hire_date date,email varchar(50) unique,
 age int check(age>20),phone bigint,dept_id int,foreign key(dept_id) references department(dept_id));
 desc employee;
-insert into employee values(101,"ravi",45000,'10-38-29',"ravu@gmail.com",21,9088776),
+insert into employee values(101,"ravi",45000,'10-38-29',"ravu@gmail.com",21,9088776,20),
 (102,"priya",55000,'12-12-20',"priya@gmail.com",29,8390303,10),
 (103,"kiran",60000,'10-03-29',"kiran@gmail.com",23,38376666,20),
 (104,"sneha",40000,'10-08-29',"snaeha@gmail.com",25,4444333,30),
-(105,"arjun",70000,'02-22-28',"arjun@gmail.com",24,34322222,40),
-(106,"divya",48000,'03-04-23',"divya@gmail.com",32,34445555,20);
+(105,"arjun",70000,'02-22-28',"arjun@gmail.com",24,34322222,20),
+(106,"divya",48000,'03-04-23',"divya@gmail.com",32,34445555,40);
 select * from employee;
+alter table employee add column phone varchar(15);
+alter table employee add column desigantion varchar(30);
+alter table employee rename column phone to mobile_no;
 alter table employee modify column salary decimal(12,2); 
 desc employee;
 alter table employee modify column emp_name varchar(20) not null;
@@ -22,9 +25,11 @@ alter table employee add constraint  unique_mobile_no unique(mobil_no);
 desc employee;
 alter table employee rename to emp_id;
 select * from emp_id;
-select *,salary+5000 from emp_id where empid=102;
+select *,salary+5000 from emp_id where empid=101;
 select *,salary+salary*0.1 as increased_salary from emp_id;
-delete from emp_id where salary<4000;
+alter table emp_id set email="rv@gmail.com" where empid=101;
+delete from emp_id where emp_id=106;
+delete from emp_id where salary<45000;
 select* from emp_id;
 truncate table emp_id;
 select * from emp_id;
