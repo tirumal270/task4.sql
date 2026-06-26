@@ -1,14 +1,11 @@
 create database dept_id;
 use dept_id;
-show tables;
 create table department(dept_id int primary key,dept_name varchar(30),location varchar(30));
 desc department;
 insert into department values(10,"hr","hyderbad"),(20,"it","bangaloor"),(30,"finance","mumbai"),(40,"marketing","dheli");
 select * from department;
 create table employee(empid int primary key,emp_name  varchar(30),salary bigint,hire_date date,email varchar(50) unique,
 age int check(age>20),phone bigint,foreign key(empid) references department(deptid));
-desc employee;
-alter table employee modify column salary decimal(12,2); 
 desc employee;
 insert into employee values(101,"ravi",45000,'10-38-29',"ravu@gmail.com",21,9088776),
 (102,"priya",55000,'12-12-20',"priya@gmail.com",29,8390303),
