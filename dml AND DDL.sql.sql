@@ -4,7 +4,7 @@ create table department(dept_id int primary key,dept_name varchar(30),location v
 desc department;
 insert into department values(10,"hr","hyderbad"),(20,"it","bangaloor"),(30,"finance","mumbai"),(40,"marketing","dheli");
 select * from department;
-create table employee(empid int primary key,emp_name  varchar(30),salary bigint,hire_date date,email varchar(50) unique,
+create table employee(emp_id int primary key,emp_name  varchar(30),salary bigint,hire_date date,email varchar(50) unique,
 age int check(age>20),phone bigint,dept_id int,foreign key(dept_id) references department(dept_id));
 desc employee;
 insert into employee values(101,"ravi",45000,'10-38-29',"ravu@gmail.com",21,9088776,20),
