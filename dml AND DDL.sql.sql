@@ -1,18 +1,18 @@
 create database dept_id;
 use dept_id;
-create table department(dept_id int primary key,dept_name varchar(30),location varchar(30));
+create table department(dept_id int primary key,dept_name varchar(30)not null,location varchar(30) default"hyderabad");
 desc department;
 insert into department values(10,"hr","hyderbad"),(20,"it","bangaloor"),(30,"finance","mumbai"),(40,"marketing","dheli");
 select * from department;
 create table employee(emp_id int primary key,emp_name  varchar(30),salary bigint,hire_date date,email varchar(50) unique,
 age int check(age>20),phone bigint,dept_id int,foreign key(dept_id) references department(dept_id));
 desc employee;
-insert into employee values(101,"ravi",45000,'10-38-29',"ravu@gmail.com",21,9088776,20),
-(102,"priya",55000,'12-12-20',"priya@gmail.com",29,8390303,10),
-(103,"kiran",60000,'10-03-29',"kiran@gmail.com",23,38376666,20),
-(104,"sneha",40000,'10-08-29',"snaeha@gmail.com",25,4444333,30),
-(105,"arjun",70000,'02-22-28',"arjun@gmail.com",24,34322222,20),
-(106,"divya",48000,'03-04-23',"divya@gmail.com",32,34445555,40);
+insert into employee values(101,"ravi",45000,'2022-01-05',"ravu@gmail.com",25,9088776,20),
+(102,"priya",55000,'2021-05-10',"priya@gmail.com",28,8390303,10),
+(103,"kiran",60000,'2020-08-20',"kiran@gmail.com",30,38376666,20),
+(104,"sneha",40000,'2023-02-01',"snaeha@gmail.com",24,4444333,30),
+(105,"arjun",70000,'2019-11-20',"arjun@gmail.com",35,34322222,20),
+(106,"divya",48000,'2022-06-18',"divya@gmail.com",27,34445555,40);
 select * from employee;
 alter table employee add column phone varchar(15);
 alter table employee add column desigantion varchar(30);
